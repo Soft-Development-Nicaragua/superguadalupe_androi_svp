@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable-v24/backgroup_price.xml" value="0.291015625" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.140625" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable-v24/ic_up.xml" value="0.2557291666666667" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable/backgroup_barcode.xml" value="0.143359375" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable/ic_launcher_background.xml" value="0.220703125" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/drawable/pnlingreso_backgroud.xml" value="0.2557291666666667" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/fragment_frm_coonfiguracion.xml" value="1.0" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_configurar.xml" value="0.2036405005688282" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_coonfiguracion.xml" value="0.25677083333333334" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_login.xml" value="0.4561186650185414" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_mostrarpropaganda.xml" value="0.11853448275862069" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_setting.xml" value="0.25104166666666666" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_splash.xml" value="0.25" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visor.xml" value="0.5" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visor_supervisor.xml" value="0.25677083333333334" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visorgeneral.xml" value="0.33" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/item_spinner.xml" value="0.5" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/mostrarpropaganda.xml" value="0.18" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/pnl_ingreso.xml" value="0.25603217158176944" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/pnlingreso_backgroud.xml" value="0.23333333333333334" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/table_view_row_header_layout.xml" value="0.23958333333333334" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/menu/mnu_configurar.xml" value="0.3125" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/menu/mnu_visor.xml" value="0.1" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.279296875" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.279296875" />
+        <entry key="..\:/Desarrollo/sdn/svp/Visor/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/Desarrollo/sdn/svp/Visor/src/main/res/layout/activity_main2.xml" value="0.13802083333333334" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/drawable/ic_down.xml" value="0.2942708333333333" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/drawable/ic_up.xml" value="0.2942708333333333" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/layout/table_view_cell_layout.xml" value="0.67" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/layout/table_view_column_header_layout.xml" value="0.67" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/layout/table_view_corner_layout.xml" value="3.0" />
+        <entry key="..\:/Desarrollo/sdn/svp/tableview/src/main/res/layout/table_view_row_header_layout.xml" value="5.0" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

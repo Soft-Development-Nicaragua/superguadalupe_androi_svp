@@ -1,0 +1,942 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/purple_500"
+            app:navigationIcon="?attr/homeAsUpIndicator"
+            app:title="@string/FrmSetting" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:id="@+id/tab1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <RelativeLayout
+                                android:id="@+id/p1_pnlcontenido"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="10dp"
+                                android:background="@android:drawable/editbox_background">
+
+                                <TextView
+                                    android:id="@+id/p1_lblServidor"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblipserver"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p1_txtServidor"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p1_lblServidor"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:text="@string/lblipserver"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p1_lblCatalogo"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtServidor"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblbdnamecatalog"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p1_txtCatalogo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtServidor"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p1_lblCatalogo"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:drawableRight="@drawable/ic_action_wireless_disabled"
+                                    android:inputType="text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:text="@string/lblbdnamecatalog"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p1_lblPermiso"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtCatalogo"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblbdnamelisence"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p1_txtPermisos"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtCatalogo"
+                                    android:layout_alignParentEnd="false"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p1_lblPermiso"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:drawableRight="@drawable/ic_action_wireless_disabled"
+                                    android:inputType="text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:text="@string/lblbdnamelisence"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p1_lblUsuario"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtPermisos"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblUsuario"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p1_txtUsuario"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtPermisos"
+                                    android:layout_alignParentEnd="false"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p1_lblUsuario"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:text="@string/lblUsuario"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p1_lblClave"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtUsuario"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblClave"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p1_txtClave"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p1_txtUsuario"
+                                    android:layout_alignParentEnd="false"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_toEndOf="@+id/p1_lblClave"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblClave"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <Button
+                                    android:id="@+id/p11_btnProbarConeccion"
+                                    android:layout_width="250dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/p1_txtClave"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="300dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@color/design_default_color_primary"
+                                    android:text="@string/btnProbarConfServidor"
+                                    android:textColor="@color/cell_background_color"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <Button
+                                    android:id="@+id/p11_btnGuardarConfServidor"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/p1_txtClave"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@color/design_default_color_primary"
+                                    android:text="@string/btnGuardar"
+                                    android:textColor="@color/cell_background_color"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/p11_pnllocal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:background="@android:drawable/editbox_background"
+                        android:paddingLeft="6dp"
+                        android:paddingTop="10dp"
+                        android:paddingRight="6dp"
+                        android:paddingBottom="6dp">
+
+                        <TextView
+                            android:id="@+id/p11_lblusuarioLocal"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:minHeight="48dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/lblUsuarioLocal"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/p11_txtusuariolocal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_toEndOf="@+id/p11_lblusuarioLocal"
+                            android:background="@android:drawable/editbox_background"
+                            android:inputType="none"
+                            android:minHeight="48dp"
+                            android:paddingStart="10dp"
+                            android:text="@string/lblUsuarioLocal"
+                            android:textColor="@color/design_default_color_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p11_lblClaveLocal"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/p11_txtusuariolocal"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="10dp"
+                            android:minHeight="48dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/lblClaveLocal"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/p11_txtclavelocal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/p11_txtusuariolocal"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_toEndOf="@+id/p11_lblClaveLocal"
+                            android:background="@android:drawable/editbox_background"
+                            android:inputType="none"
+                            android:minHeight="48dp"
+                            android:paddingStart="10dp"
+                            android:text="@string/lblClaveLocal"
+                            android:textColor="@color/design_default_color_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/p11_lblIdDispositivo"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/p11_txtclavelocal"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginBottom="10dp"
+                            android:minHeight="48dp"
+                            android:paddingEnd="10dp"
+                            android:text="@string/lblCodDispositivo"
+                            android:textAlignment="viewEnd"
+                            android:textColor="@color/black"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <EditText
+                            android:id="@+id/p11_txtIdDispositivo"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/p11_txtclavelocal"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:layout_toEndOf="@+id/p11_lblClaveLocal"
+                            android:background="@android:drawable/editbox_background"
+                            android:inputType="none"
+                            android:minHeight="48dp"
+                            android:paddingStart="10dp"
+                            android:text="@string/lblClaveLocal"
+                            android:textColor="@color/design_default_color_primary"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:id="@+id/p11_btnGuardarConfLocal"
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/p11_txtIdDispositivo"
+                            android:layout_alignParentRight="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="30dp"
+                            android:layout_marginEnd="10dp"
+                            android:layout_marginBottom="10dp"
+                            android:background="@color/design_default_color_primary"
+                            android:text="Guardar"
+                            android:textColor="@color/cell_background_color"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <RelativeLayout
+                            android:id="@+id/p11_pnlapp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="10dp"
+                            android:background="@android:drawable/editbox_background">
+
+                            <TextView
+                                android:id="@+id/p11_lblsucursal"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="10dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblSucursal"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/p11_txtsucursal"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toEndOf="@+id/p11_lblsucursal"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="none"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:text="@string/lblSucursal"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                app:drawableRightCompat="@drawable/ic_down" />
+
+                            <TextView
+                                android:id="@+id/p11_lblVisor"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/p11_txtsucursal"
+                                android:layout_marginTop="30dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblVisorActual"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <Spinner
+                                android:id="@+id/p11_txtVisor"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/p11_txtsucursal"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toEndOf="@+id/p11_lblVisor"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="none"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold"
+                                app:drawableRightCompat="@drawable/ic_down" />
+
+                            <TextView
+                                android:id="@+id/p11_lblTiempoEspera"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtVisor"
+                                android:layout_marginTop="30dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblTiempoEspera"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/p11_txtTiempoEspera"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtVisor"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toEndOf="@+id/p11_lblVisor"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="number"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_lblTiempoVisorGeneral"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_lblTiempoEspera"
+                                android:layout_marginTop="30dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblTiempoVisorGeneral"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/p11_txtTiempoVisorGeneral"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_lblTiempoEspera"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toEndOf="@+id/p11_lblTiempoVisorGeneral"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="number"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_lblTiempoVisorMayorista"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_lblTiempoVisorGeneral"
+                                android:layout_marginTop="30dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblTiempoVisorMayorista"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <EditText
+                                android:id="@+id/p11_txtTiempoVisorMayorista"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_lblTiempoVisorGeneral"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_toEndOf="@+id/p11_lblTiempoVisorMayorista"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="number"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_lblcarpetalogo"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtTiempoVisorMayorista"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="10dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblCarpetaLogo"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_txtCarpetaLogo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtTiempoVisorMayorista"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_toEndOf="@+id/p11_lblVisor"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="none"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_lblcarpetaBienvenida"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtCarpetaLogo"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="10dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblCarpetaBienvenida"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_txtCarpetaBienvenida"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtCarpetaLogo"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_toEndOf="@+id/p11_lblcarpetalogo"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="none"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_lblColorFondo"
+                                android:layout_width="300dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_lblcarpetaBienvenida"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginBottom="10dp"
+                                android:minHeight="48dp"
+                                android:paddingEnd="10dp"
+                                android:text="@string/lblColorFondo"
+                                android:textAlignment="viewEnd"
+                                android:textColor="@color/black"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/p11_txtColorFondo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtCarpetaBienvenida"
+                                android:layout_alignParentEnd="true"
+                                android:layout_marginTop="30dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_toEndOf="@+id/p11_lblcarpetalogo"
+                                android:background="@android:drawable/editbox_background"
+                                android:inputType="none"
+                                android:minHeight="48dp"
+                                android:paddingStart="10dp"
+                                android:textColor="@color/design_default_color_primary"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <Button
+                                android:id="@+id/p11_btnGuardarConfApp"
+                                android:layout_width="200dp"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@id/p11_txtColorFondo"
+                                android:layout_alignParentRight="true"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:layout_marginBottom="10dp"
+                                android:background="@color/design_default_color_primary"
+                                android:text="@string/btnGuardar"
+                                android:textColor="@color/cell_background_color"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                        </RelativeLayout>
+                    </ScrollView>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/tab4"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical">
+
+                            <Switch
+                                android:id="@+id/p11_cbxpromocion"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="10dp"
+                                android:layout_marginTop="10dp"
+                                android:layout_marginEnd="10dp"
+                                android:minHeight="48dp"
+                                android:text="@string/lblActivarPromociones"
+                                android:textSize="24sp"
+                                android:textStyle="bold" />
+
+                            <RelativeLayout
+                                android:id="@+id/p11_pnlpromocion"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp"
+                                android:background="@android:drawable/editbox_background">
+
+                                <TextView
+                                    android:id="@+id/p11_lblcarpetapromocion"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblCarpetaPromocion"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p11_txtCarpetaPromocion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p11_lblcarpetapromocion"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="none"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p11_lblTiempoPromocion"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/p11_txtCarpetaPromocion"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblTiempoMostrarPromocion"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p11_txtTiempoPromocion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/p11_txtCarpetaPromocion"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p11_lblTiempoPromocion"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="numberSigned|text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/p11_lblTiempoDuracionPromocion"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p11_txtTiempoPromocion"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:minHeight="48dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblTiempoDuracionPropagando"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <EditText
+                                    android:id="@+id/p11_txtTiempoDuracionPromocion"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@+id/p11_txtTiempoPromocion"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_toEndOf="@+id/p11_lblTiempoDuracionPromocion"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:inputType="numberSigned|text"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp"
+                                    android:textColor="@color/design_default_color_primary"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <Switch
+                                    android:id="@+id/p11_cbxpromocionattrib"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/p11_txtTiempoDuracionPromocion"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="10dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:minHeight="48dp"
+                                    android:text="@string/lblTiempoActivarPromocionesFiltro"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <View
+                                    android:id="@+id/divider"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_below="@id/p11_cbxpromocionattrib"
+                                    android:layout_marginStart="20dp"
+                                    android:layout_marginEnd="20dp"
+                                    android:background="?android:attr/listDivider" />
+
+                                <TextView
+                                    android:id="@+id/p11_lblListaImagenes"
+                                    android:layout_width="300dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_below="@id/divider"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:paddingEnd="10dp"
+                                    android:text="@string/lblListaPromociones"
+                                    android:textAlignment="viewEnd"
+                                    android:textColor="@color/black"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+
+                                <ListView
+                                    android:id="@+id/p11_txtListaImagenes"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="170dp"
+                                    android:layout_below="@id/divider"
+                                    android:layout_alignParentEnd="false"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_toEndOf="@+id/p11_lblListaImagenes"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:minHeight="150dp"
+                                    android:paddingStart="10dp"
+                                    android:scrollbarAlwaysDrawHorizontalTrack="true"
+                                    android:scrollbarSize="30dp"
+                                    android:scrollbarStyle="outsideOverlay"
+                                    android:smoothScrollbar="false"></ListView>
+
+                              <!-- <ScrollView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="200dp"
+                                    android:layout_below="@id/divider"
+                                    android:layout_alignParentEnd="false"
+                                    android:layout_marginTop="30dp"
+                                    android:layout_marginEnd="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:layout_toEndOf="@+id/p11_lblListaImagenes"
+                                    android:background="@android:drawable/editbox_background"
+                                    android:minHeight="48dp"
+                                    android:paddingStart="10dp">
+
+                                    <TextView
+                                        android:id="@+id/p11_txtListaImagenes"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:inputType="textMultiLine|text"
+                                        android:textColor="@color/design_default_color_primary"
+                                        android:textSize="24sp"
+                                        android:textStyle="bold" />
+                                </ScrollView>-->
+
+
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_margin="10dp">
+
+                                <Button
+                                    android:id="@+id/p11_btnGuardarConfPromocion"
+                                    android:layout_width="200dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentRight="true"
+                                    android:layout_marginStart="10dp"
+                                    android:layout_marginBottom="10dp"
+                                    android:background="@color/design_default_color_primary"
+                                    android:text="@string/btnGuardar"
+                                    android:textColor="@color/cell_background_color"
+                                    android:textSize="24sp"
+                                    android:textStyle="bold" />
+                            </RelativeLayout>
+
+                        </LinearLayout>
+                    </ScrollView>
+
+                </LinearLayout>
+
+            </FrameLayout>
+        </LinearLayout>
+    </TabHost>
+
+
+</LinearLayout>

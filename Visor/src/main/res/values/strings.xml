@@ -1,0 +1,51 @@
+<resources>
+    <string name="app_name">svp</string>
+    <string name="lblClave">Clave</string>
+    <string name="lblUsuario">Usuario</string>
+    <string name="lblipserver">IP Servidor</string>
+    <string name="lblbdnamecatalog">BD. Catalogo</string>
+    <string name="lblbdnamelisence">BD. Permisos</string>
+    <string name="lblSucursal">Sucursal</string>
+
+    <string name="Tab1">Servidor Remoto</string>
+    <string name="Tab2">Servidor Local</string>
+    <string name="Tab3">App</string>
+    <string name="Tab4">Promoción</string>
+
+    <string name="lblVisorActual">Visor por defecto</string>
+    <string name="lblVisorGeneral">Visor General</string>
+    <string name="lblVisorMayorista">Visor Detallado</string>
+
+    <string name="FrmSetting">Configurar Aplicacion</string>
+    <string name="m1_action_guardar">Guardar</string>
+    <string name="m1_action_cerrar">Cerrar Aplicacion</string>
+    <string name="lblUsuarioLocal">Usuario Local</string>
+    <string name="lblClaveLocal">Clave Local</string>
+
+    <string name="header_text">Hader Data</string>
+    <string name="header_order">Ordenar</string>
+    <string name="count_register">Registros</string>
+    <string name="lblTiempoEspera">Visor de Bienvenida. (Seg)</string>
+    <string name="lblTiempoVisorGeneral">Visor General. (Seg)</string>
+    <string name="lblTiempoVisorMayorista">Visor Detallado. (Seg)</string>
+    <string name="lblCarpetaPromocion">Carpeta Promocion</string>
+    <string name="lblCarpetaLogo">Logo de Sucursal</string>
+    <string name="lblCarpetaBienvenida">Pantalla Bienvenida</string>
+    <string name="lblCodigoBarra">COLOQUE SU PRODUCTO AQUI</string>
+    <string name="producto_buscado">Buscando producto, por favor espere</string>
+    <string name="produto_noencontrado">Producto no encontrado, contacte con unos de nuestro asocialdos</string>
+    <string name="licencias_excedidas">Se excedio la cantidad de licencias autorizadas</string>
+    <string name="servidor_noconcuerda">Servidor no disponible</string>
+    <string name="bd_noconcuerda">Licencia de la base de datos no esta disponible</string>
+    <string name="dipositivo_noautorizado">Favor autorizar la licencia en el servidor</string>
+    <string name="msg_solicitar_escaneo">FAVOR ESCANEE SU PRODUCTO</string>
+    <string name="lblActivarPromociones">Activar Modulo de Promociones</string>
+    <string name="lblTiempoMostrarPromocion">Tiempo de espera para mostrar promociones. (Seg)</string>
+    <string name="lblTiempoDuracionPropagando">Duracion de Promocion.(Seg)</string>
+    <string name="lblListaPromociones">Imagenes a promocionar</string>
+    <string name="lblTiempoActivarPromocionesFiltro">Mostrar promociones despues de buscar producto</string>
+    <string name="btnProbarConfServidor">Probar Conexión</string>
+    <string name="btnGuardar">Guardar</string>
+    <string name="lblCodDispositivo">ID Dispositivo</string>
+    <string name="lblColorFondo">Color De Fondo</string>
+</resources>

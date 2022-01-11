@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="header_text">Hader Data</string>
+    <string name="header_order">Ordenar</string>
+    <string name="count_register">Registros</string>
+</resources>
