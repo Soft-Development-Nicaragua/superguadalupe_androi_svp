@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <color name="cell_background_color">#ffffff</color>
-    <color name="cell_text_color">#0A0A0A</color>
-    <color name="header_split_color">#E7E7E7</color>
-</resources>
