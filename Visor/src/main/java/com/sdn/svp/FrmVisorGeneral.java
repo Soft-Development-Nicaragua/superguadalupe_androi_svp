@@ -40,7 +40,6 @@ import java.util.ArrayList;
 
 public class FrmVisorGeneral extends AppCompatActivity {
 
-    //private TextInputEditText txtLectura;
     private boolean estaLeyendo;
     private SoundManager sound;
     private int msg_error, msg_ok;
