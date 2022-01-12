@@ -35,10 +35,9 @@
     <string name="producto_buscado">Buscando producto, por favor espere</string>
     <string name="produto_noencontrado">Producto no encontrado, contacte con unos de nuestro asocialdos</string>
     <string name="licencias_excedidas">Se excedio la cantidad de licencias autorizadas</string>
-    <string name="servidor_noconcuerda">Servidor no disponible</string>
+    <string name="servidor_noconcuerda">Servidor O MAC no disponible</string>
     <string name="bd_noconcuerda">Licencia de la base de datos no esta disponible</string>
     <string name="dipositivo_noautorizado">Favor autorizar la licencia en el servidor</string>
-    <string name="msg_solicitar_escaneo">FAVOR ESCANEE SU PRODUCTO</string>
     <string name="lblActivarPromociones">Activar Modulo de Promociones</string>
     <string name="lblTiempoMostrarPromocion">Tiempo de espera para mostrar promociones. (Seg)</string>
     <string name="lblTiempoDuracionPropagando">Duracion de Promocion.(Seg)</string>
@@ -48,4 +47,8 @@
     <string name="btnGuardar">Guardar</string>
     <string name="lblCodDispositivo">ID Dispositivo</string>
     <string name="lblColorFondo">Color De Fondo</string>
+    <string name="msg_solicitar_escaneo">FAVOR ESCANEE SU PRODUCTO</string>
+    <string name="msg_registrar_localmente">Favor Registrar dispositivo Localmente</string>
+    <string name="msg_error_autenticacion">Error de Usuario o Contraseña</string>
+    <string name="msg_error_credencial">Favor ingresar su usuario y contraseña</string>
 </resources>

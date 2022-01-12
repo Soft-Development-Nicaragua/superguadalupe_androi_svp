@@ -3,25 +3,17 @@ package com.sdn.svp;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
-import androidx.core.graphics.drawable.RoundedBitmapDrawable;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.os.Looper;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -59,6 +51,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
     private ImageView logoSuperior;
     private TextView lblEscanearProducto;
     String CODIGO_LEIDO="";
+    private ImageView image_promo1,image_promo2;
 
     {
         lppresentaciones.leftMargin = 10;
@@ -125,6 +118,12 @@ public class FrmVisorGeneral extends AppCompatActivity {
         txtPrecioUnitario = (TextView) findViewById(R.id.p3_txtPrecioUnitario);
         lblEscanearProducto= (TextView) findViewById(R.id.p3_lblColocarProducto);
 
+        image_promo1 =(ImageView)findViewById(R.id.p3_imgpromo1);
+        image_promo1.setImageBitmap(Utils.cargarBitImageFromWorkDirectory(FrmVisorGeneral.this,  "Icono1.png"));
+
+        image_promo2 =(ImageView)findViewById(R.id.p3_imgpromo2);
+        image_promo2.setImageBitmap(Utils.cargarBitImageFromWorkDirectory(FrmVisorGeneral.this,  "Icono2.png"));
+
         limpiarFormulario(false);
 
         if (ConfApp.SHOW_MODULE_PROMO && !ConfApp.SHOW_AFTER_BARCODE_READ)
@@ -139,15 +138,12 @@ public class FrmVisorGeneral extends AppCompatActivity {
             if ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
 
                 String codigo = CODIGO_LEIDO.replaceAll("\\s", "");
-                if ((codigo.length() > 0) && !estaLeyendo) {
-                    estaLeyendo = true;
-                    //txtLectura.setEnabled(false);
-                    continuar_Comprobacion(codigo);
-                    return true;
-                } else {
-                    sound.play(msg_error);
+                if(!estaLeyendo){
+                    if ((codigo.length() > 0) && !estaLeyendo) {
+                        continuar_Comprobacion(codigo);
+                    }
+                }else{
                     limpiarInmediatamente();
-                    return false;
                 }
             }
         }
@@ -178,13 +174,13 @@ public class FrmVisorGeneral extends AppCompatActivity {
         lblEscanearProducto.setVisibility(View.INVISIBLE);
 
         mostrarNombreDeProducto(getResources().getString(R.string.producto_buscado).toUpperCase());
+        estaLeyendo = true;
 
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
                     producto = ConfApp.BDOPERATION.GetProducto(codigo);
-
                     if (!producto.getNombre().isEmpty()) {
                         sound.play(msg_ok);
                         ListaPresentaciones = ConfApp.BDOPERATION.GetPresentacion(ISVISORGENERAL);
@@ -216,6 +212,8 @@ public class FrmVisorGeneral extends AppCompatActivity {
                     ArrayList<Precio> precio = listaPrecios.get(itprecio);
                     if (itprecio == PRECIOAMOSTRAR) {
                         for (int it = 0; it < precio.size(); it++) {
+                            image_promo1.setVisibility(precio.get(it).isPromocion()? View.VISIBLE:View.INVISIBLE);
+                            image_promo2.setVisibility(precio.get(it).isPromocion()? View.VISIBLE:View.INVISIBLE);
 
                             if (it == 0) {
                                 try {
@@ -224,8 +222,9 @@ public class FrmVisorGeneral extends AppCompatActivity {
                                     txtPrecioUnitario.setText(precio.get(it).getPresentacion()+ " " + "C$ " + precio.get(it).getPrecio());
                                 }
                                 //txtPrecioUnitario.setCompoundDrawables(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
-                                txtPrecioUnitario.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
+                               // txtPrecioUnitario.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
                             } else {
+
                                 LinearLayout contenedor = new LinearLayout(FrmVisorGeneral.this);
                                 contenedor.setLayoutParams(lpprecio);
                                 contenedor.setOrientation(LinearLayout.VERTICAL);
@@ -240,7 +239,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
                                 TextView textValor = new TextView(FrmVisorGeneral.this);
                                 textValor.setLayoutParams(lpvalor);
                                 textValor.setBackground(ContextCompat.getDrawable(FrmVisorGeneral.this, R.drawable.backgroup_price));
-                                textValor.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
+                                //textValor.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
                                 // textValor.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.img_offert), null);
                                 try {
                                     textValor.setText("C$ " + ConfApp.ISO8601_DECIMAL_FORMAT_1.format(Double.parseDouble(precio.get(it).getPrecio())));
@@ -362,6 +361,8 @@ public class FrmVisorGeneral extends AppCompatActivity {
         txtPrecioUnitario.setCompoundDrawablesWithIntrinsicBounds(null,null,null,null);
         CODIGO_LEIDO ="";
         estaLeyendo = false;
+        image_promo1.setVisibility(View.INVISIBLE);
+        image_promo2.setVisibility(View.INVISIBLE);
         panelPrincipal.setBackgroundColor(Color.TRANSPARENT);
         panelPrincipal.setBackground(RoundedBitmapDrawableFactory.create(getResources(),Utils.cargarBitImageFromScreenDirectory(FrmVisorGeneral.this, ConfApp.BRANCH_DEFAULT + ".png")));
         logoSuperior.setVisibility(View.INVISIBLE);
@@ -374,8 +375,6 @@ public class FrmVisorGeneral extends AppCompatActivity {
     }
 
     private void mostrarPropaganda() {
-      //  System.out.println("ConfApp.ISSHOWING_DIALOG:"+ConfApp.ISSHOWING_DIALOG +"ConfApp.SHOW_MODULE_PROMO"+ConfApp.SHOW_MODULE_PROMO+"ConfApp.SHOW_AFTER_BARCODE_READ"+ConfApp.SHOW_AFTER_BARCODE_READ);
-      //  System.out.println("ConfApp.TIMER_PROPO_VISOR:"+ConfApp.TIMER_PROPO_VISOR);
 
         if (!ConfApp.ISSHOWING_DIALOG) {
             CountDownTimer countDownTimer = new CountDownTimer(ConfApp.TIMER_PROPO_VISOR * 1000, 1000) {
@@ -384,7 +383,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
 
                 public void onFinish() {
                     //System.out.println("onFinish de mostrarPropaganda  txtNombre:"+txtNombreProducto.getText().toString().isEmpty()+" !ConfApp.ISSHOWING_DIALOG:"+ConfApp.ISSHOWING_DIALOG+" ConfApp.SCREEN_NAME:"+ConfApp.SCREEN_NAME.equals(getClass().getName()));
-                    System.out.println("ConfApp.SCREEN_NAME"+ConfApp.SCREEN_NAME);
+                   // System.out.println("ConfApp.SCREEN_NAME"+ConfApp.SCREEN_NAME);
 
                     if (txtNombreProducto.getText().toString().isEmpty() && !ConfApp.ISSHOWING_DIALOG && ConfApp.SCREEN_NAME.equals(FrmVisorGeneral.this.getClass().getName()) ) {
                         createDialog();
@@ -401,7 +400,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
 
     private void createDialogRetarded() {
 
-        System.out.println("Entro a createDialogRetarded");
+        //System.out.println("Entro a createDialogRetarded");
         CountDownTimer countDownTimer = new CountDownTimer(ConfApp.TIMER_PROPO_VISOR * 1000, 1000) {
             public void onTick(long millisUntilFinished) {
             }

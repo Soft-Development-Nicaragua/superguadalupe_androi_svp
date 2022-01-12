@@ -15,28 +15,6 @@
         android:layout_margin="10dp"
         android:background="@color/background_color"
         android:scaleType="fitCenter"/>
-    <!--
-    <com.google.android.material.textfield.TextInputEditText
-        android:id="@+id/p3_txtCodigoBarra"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:background="@drawable/backgroup_barcode"
-        android:drawableStart="@drawable/ic_action_barcode"
-        android:drawableTint="@color/cell_text_color"
-        android:gravity="center_horizontal"
-        android:hint="@string/msg_solicitar_escaneo"
-        android:inputType="text"
-        android:minHeight="48dp"
-        android:paddingLeft="10dp"
-        android:textColor="@color/cell_text_color"
-        android:textSize="48sp"
-        android:visibility="invisible"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    //-->
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -60,7 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="UNID. C$ 9.40"
+            android:text="UNID. C$ 9,298.00"
             android:textColor="@color/purple_700"
             android:textSize="96sp"
             android:textStyle="bold" />
@@ -92,7 +70,6 @@
                     android:layout_height="75dp"
                     android:layout_weight="1"
                     android:background="@drawable/backgroup_price"
-                    android:drawableRight="@drawable/img_offert"
                     android:gravity="center_horizontal|center_vertical"
                     android:text="C$ 223.10"
                     android:textAlignment="center"
@@ -144,6 +121,29 @@
         android:textColor="@color/price_color"
         android:textSize="34sp"
         android:textStyle="bold" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginTop="-500dp"
+        android:foregroundGravity="top|right">
+
+        <ImageView
+            android:id="@+id/p3_imgpromo1"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_alignParentStart="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/img_promocion" />
+
+        <ImageView
+            android:id="@+id/p3_imgpromo2"
+            android:layout_width="250dp"
+            android:layout_height="200dp"
+            android:layout_alignParentEnd="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/img_promocion" />
+    </RelativeLayout>
 
 
     <!--

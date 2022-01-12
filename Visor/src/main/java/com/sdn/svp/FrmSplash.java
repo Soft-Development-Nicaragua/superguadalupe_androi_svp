@@ -40,8 +40,7 @@ public class FrmSplash extends AppCompatActivity {
         IniciarCuentaAtras = true;
         Fondo_Pantalla.setImageBitmap(Utils.cargarBitImageFromScreenDirectory(FrmSplash.this, ConfApp.BRANCH_DEFAULT + ".png"));
 
-        if (ConfApp.DEVICEAUTORIZED)
-            CrearTimer();
+        CrearTimer();
     }
 
     @Override
@@ -104,39 +103,30 @@ public class FrmSplash extends AppCompatActivity {
 
         dialogBuilder.setPositiveButton("Ingresar", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                //ConfApp.loadParameters(FrmSplash.this);//cargamos configuraciones actualizadas
-
-                if (ConfApp.DEVICEAUTORIZED) {
-                    if (!txtusuario.getText().toString().isEmpty() && !txtClave.getText().toString().isEmpty()) {
-                        if (txtusuario.getText().toString().equals(ConfApp.SYSTEM_USER) && txtClave.getText().toString().equals(ConfApp.SYSTEM_PASS)) {
-                            // ConfApp.USER_DTS = true;
-                            // ConfApp.USER_ADMIN = true;
-                            Intent nuevaPantalla = new Intent(FrmSplash.this, FrmConfigurar.class);
-                            startActivity(nuevaPantalla);
-                        } else {
-                            Thread thread = new Thread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    try {
-                                        if (!ConfApp.BDOPERATION.estaAutorizado(txtusuario.getText().toString(), txtClave.getText().toString())) {
-                                            aperturarVenta(v);
-                                        } else {
-                                            ConfApp.VISOR_DEFAULT = 1;
-                                            openScreen();
-                                        }
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                }
-                            });
-                            thread.start();
-                        }
+                if (!txtusuario.getText().toString().isEmpty() && !txtClave.getText().toString().isEmpty()) {
+                    if (txtusuario.getText().toString().equals(ConfApp.SYSTEM_USER) && txtClave.getText().toString().equals(ConfApp.SYSTEM_PASS)) {
+                        Intent nuevaPantalla = new Intent(FrmSplash.this, FrmConfigurar.class);
+                        startActivity(nuevaPantalla);
                     } else {
-                        Toast.makeText(getApplicationContext(), "Usuario o contrasena no pueden ser vacios ", Toast.LENGTH_SHORT).show();
-                        abrirlogin(v);
+                        Thread thread = new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    if (!ConfApp.BDOPERATION.estaAutorizado(txtusuario.getText().toString(), txtClave.getText().toString())) {
+                                        aperturarVenta(v);
+                                    } else {
+                                        ConfApp.VISOR_DEFAULT = 1;
+                                        openScreen();
+                                    }
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+                        thread.start();
                     }
                 } else {
-                    Toast.makeText(FrmSplash.this, "Dispositivo no registrado", Toast.LENGTH_SHORT).show();
+                    printToas(getResources().getString(R.string.msg_error_credencial));
                     abrirlogin(v);
                 }
             }
@@ -153,7 +143,7 @@ public class FrmSplash extends AppCompatActivity {
         dialogBuilder.setOnCancelListener(new DialogInterface.OnCancelListener() {
             @Override
             public void onCancel(DialogInterface dialogInterface) {
-                System.out.println("Evento setOnCancelListener");
+               // System.out.println("Evento setOnCancelListener");
                 IniciarCuentaAtras = true;
                 CrearTimer();
             }
@@ -168,7 +158,7 @@ public class FrmSplash extends AppCompatActivity {
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(FrmSplash.this, "Error de Usuario o contrasena ", Toast.LENGTH_SHORT).show();
+                printToas(getResources().getString(R.string.msg_error_autenticacion));
                 abrirlogin(v);
             }
         });
@@ -180,9 +170,10 @@ public class FrmSplash extends AppCompatActivity {
             public void run() {
                 try {
                     boolean dispostivoRegistrado = ConfApp.BDOPERATION.GetStatusLicense(FrmSplash.this);
-                    if (dispostivoRegistrado)
+                    if (dispostivoRegistrado && ConfApp.DEVICEAUTORIZED)
                         continue_openScreen();
                     else {
+                        printToas(getResources().getString(R.string.msg_registrar_localmente));
                         CrearTimer();
                     }
                 } catch (Exception e) {
@@ -244,72 +235,4 @@ public class FrmSplash extends AppCompatActivity {
         return false;
     }
 
-    /*@Override
-    protected void onPause() {
-        super.onPause();
-        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.moveTaskToFront(getTaskId(), 0);
-    }*/
-
-   /*@Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        try {
-            if (!hasFocus) {
-                Object service = getSystemService("statusbar");
-                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
-                Method collapse = statusbarManager.getMethod("collapse");
-                collapse.setAccessible(true);
-                collapse.invoke(service);
-            }
-        } catch (Exception e) {
-            //Log.e(TAG, "onWindowFocusChanged - " + e.getCause());
-        }
-    }*/
-
-/*
-    String palabra="";
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        return false;
-    }
-
-    @Override
-    public boolean dispatchKeyEvent(KeyEvent event) {
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            if(event.isPrintingKey())
-                palabra+= ""+ (char) event.getUnicodeChar(event.getMetaState());
-            if ((event.getKeyCode() == KeyEvent.KEYCODE_ENTER)) {
-                System.out.println("Palabra escaneada al fondo "+palabra);
-            }
-            return false;
-        }
-
-        return false;
-    }
-
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        ActivityManager activityManager = (ActivityManager) getApplicationContext().getSystemService(Context.ACTIVITY_SERVICE);
-        activityManager.moveTaskToFront(getTaskId(), 0);
-    }
-
-    @Override
-    public void onWindowFocusChanged(boolean hasFocus) {
-        super.onWindowFocusChanged(hasFocus);
-        try {
-            if (!hasFocus) {
-                Object service = getSystemService("statusbar");
-                Class<?> statusbarManager = Class.forName("android.app.StatusBarManager");
-                Method collapse = statusbarManager.getMethod("collapse");
-                collapse.setAccessible(true);
-                collapse.invoke(service);
-            }
-        } catch (Exception e) {
-            //Log.e(TAG, "onWindowFocusChanged - " + e.getCause());
-        }
-    }*/
 }

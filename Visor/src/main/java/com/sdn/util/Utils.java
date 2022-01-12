@@ -19,6 +19,7 @@ import com.sdn.svp.R;
 import org.apache.commons.codec.binary.Base64;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.security.MessageDigest;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -165,9 +166,9 @@ public class Utils {
     public static Bitmap cargarBitImageFromScreenDirectory(Context pantalla, String NombreImagen) {
         Bitmap image = null;
         try{
-            System.out.println("Cargando Pantalla...."+Utils.getScreenDirectory(pantalla)+NombreImagen);
-             image = BitmapFactory.decodeFile(Utils.getScreenDirectory(pantalla)+NombreImagen);
+            image = BitmapFactory.decodeFile(Utils.getScreenDirectory(pantalla)+NombreImagen);
         }catch (Exception e){
+            //CODIGO SIN EFECTO VER METODO carga cargarBitImageFromWorkDirectory
             image = BitmapFactory.decodeResource(pantalla.getResources(), R.drawable.ic_up);
         }
         return image;
@@ -176,10 +177,24 @@ public class Utils {
     public static Bitmap cargarBitImageFromBrandDirectory(Context pantalla, String NombreImagen) {
         Bitmap image = null;
         try{
-            System.out.println("Cargando Logo...."+Utils.getBrandDirectory(pantalla)+NombreImagen);
+            //System.out.println("Cargando Logo...."+Utils.getBrandDirectory(pantalla)+NombreImagen);
             image = BitmapFactory.decodeFile(Utils.getBrandDirectory(pantalla)+NombreImagen);
         }catch (Exception e){
             image = BitmapFactory.decodeResource(pantalla.getResources(), R.drawable.img_deviceerror_24x24);
+        }
+        return image;
+    }
+
+    public static Bitmap cargarBitImageFromWorkDirectory(Context pantalla, String NombreImagen) {
+        Bitmap image = null;
+
+        File archivo = new File(Utils.getWorkDirectory(pantalla)+NombreImagen);
+        if(archivo.exists()){
+            image = BitmapFactory.decodeFile(Utils.getWorkDirectory(pantalla)+NombreImagen);
+            //System.out.println("Si existe.");
+        }else{
+            image = BitmapFactory.decodeResource(pantalla.getResources(), R.drawable.img_promocion);
+           // System.out.println("No existe cargando por defecto");
         }
         return image;
     }

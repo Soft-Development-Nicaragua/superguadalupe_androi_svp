@@ -190,19 +190,19 @@ public class BDOperacion extends BDServidorInterface{
         if(indice==0){ //ES PRESENTACION DE CONTADO
            // System.out.println("Presentacion de contado");
             Promocion promocion =  getHappyHour(producto);
-            System.out.println("getHappyHour Retorna:"+promocion.toString2());
+            //System.out.println("getHappyHour Retorna:"+promocion.toString2());
 
             if(promocion.getTipo()!=-1){//SI TIENE HAPPYHOUR
                 //System.out.println("Tiene HappyHour:"+promocion.toString2());
 
                 for(int it=0;it< Registros.size();it++){
-                    System.out.println("Precio antes del cambio: "+Registros.get(it).toString2());
+                    //System.out.println("Precio antes del cambio: "+Registros.get(it).toString2());
                     Double PrecioAnterior = Double.parseDouble( Registros.get(it).getPrecio());
                     Double precio = PrecioAnterior - (PrecioAnterior * (promocion.getDescuento()/100));
                     Registros.get(it).setPrecio(""+precio);//new DecimalFormat("#.0#").format(precio));
                     Registros.get(it).setPromocion(true);
                     Registros.get(it).setDescuento(promocion.getDescuento());
-                    System.out.println("Precio despues del cambio: "+Registros.get(it).toString2());
+                    //System.out.println("Precio despues del cambio: "+Registros.get(it).toString2());
                 }
             }else{
                 //System.out.println("No Tiene HappyHour");
@@ -290,7 +290,7 @@ public class BDOperacion extends BDServidorInterface{
                 "  WHERE TIPO_DESC=? AND ID=? AND COD_SUC=? AND (GETDATE()>=(DATEADD(day, 0, DATEDIFF(day, 0, F_INICIO)) +DATEADD(day, 0 - DATEDIFF(day, 0, H_INICIO), H_INICIO))) AND (GETDATE()<=(DATEADD(day, 0, DATEDIFF(day, 0, F_FIN)) +DATEADD(day, 0 - DATEDIFF(day, 0, H_FIN), H_FIN)))\n";
         ArrayList<Promocion> Registros = new ArrayList<Promocion>();
 
-        System.out.println("Parametro busqueda: TipoDescuento:[" + TipoDescuento+"] ID:["+ID+"] Sucursal:["+ConfApp.BRANCH_DEFAULT+"]");
+       // System.out.println("Parametro busqueda: TipoDescuento:[" + TipoDescuento+"] ID:["+ID+"] Sucursal:["+ConfApp.BRANCH_DEFAULT+"]");
 
         try {
             V_OBJECTCONECTION = V_SPOOL_CATALOG.getConnection();
