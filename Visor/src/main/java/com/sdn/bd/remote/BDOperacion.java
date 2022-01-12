@@ -286,7 +286,7 @@ public class BDOperacion extends BDServidorInterface{
                 "      ,CAST(COALESCE( [JUEVES],0)  AS BIT) AS JUEVES\n" +
                 "      ,CAST(COALESCE( [VIERNES],0) AS BIT)  AS  VIERNES \n" +
                 "      ,CAST(COALESCE( [SABADO],0)  AS BIT) AS SABADO" +
-                "  FROM [scm].[dbo].[Facturacion Descuentos]\n" +
+                "  FROM [Facturacion Descuentos]\n" +
                 "  WHERE TIPO_DESC=? AND ID=? AND COD_SUC=? AND (GETDATE()>=(DATEADD(day, 0, DATEDIFF(day, 0, F_INICIO)) +DATEADD(day, 0 - DATEDIFF(day, 0, H_INICIO), H_INICIO))) AND (GETDATE()<=(DATEADD(day, 0, DATEDIFF(day, 0, F_FIN)) +DATEADD(day, 0 - DATEDIFF(day, 0, H_FIN), H_FIN)))\n";
         ArrayList<Promocion> Registros = new ArrayList<Promocion>();
 
