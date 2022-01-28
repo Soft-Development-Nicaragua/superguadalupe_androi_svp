@@ -5,6 +5,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.drawable.RoundedBitmapDrawableFactory;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -148,7 +149,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
             }
         }
 
-        if (event.getAction() == KeyEvent.ACTION_UP && (event.getKeyCode() == KeyEvent.KEYCODE_BACK) ) {
+        if (event.getAction() == KeyEvent.ACTION_UP && (event.getKeyCode() == KeyEvent.KEYCODE_BACK) && !estaLeyendo ) {
             onBackPressed();
         }
         return false;
@@ -376,7 +377,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
 
     private void mostrarPropaganda() {
 
-        if (!ConfApp.ISSHOWING_DIALOG) {
+        if (!ConfApp.ISSHOWING_DIALOG && !((Activity) FrmVisorGeneral.this).isFinishing()) {
             CountDownTimer countDownTimer = new CountDownTimer(ConfApp.TIMER_PROPO_VISOR * 1000, 1000) {
                 public void onTick(long millisUntilFinished) {
                 }
@@ -427,8 +428,9 @@ public class FrmVisorGeneral extends AppCompatActivity {
         builder.setView(dialogView);
 
         mAlertDialog = builder.create();
+        System.out.println(FrmVisorGeneral.this.getClass().getName());
 
-       if (ConfApp.SHOW_MODULE_PROMO && !ConfApp.ISSHOWING_DIALOG &&  txtNombreProducto.getText().toString().isEmpty() && ConfApp.SCREEN_NAME.equals(FrmVisorGeneral.this.getClass().getName()) ){
+       if (ConfApp.SHOW_MODULE_PROMO && !ConfApp.ISSHOWING_DIALOG &&  txtNombreProducto.getText().toString().isEmpty() && ConfApp.SCREEN_NAME.equals("com.sdn.svp.FrmVisorGeneral") && !((Activity) FrmVisorGeneral.this).isFinishing()){
             mAlertDialog.show();
 
            final Handler handler = new Handler();
