@@ -87,13 +87,13 @@ public class BDOperacion extends BDServidorInterface{
     }
 
     public Producto GetProducto(String codigo) {
-       // V_SQLQUERYSEARCH = "SELECT TOP 1 COD_PROD,COD_LIN,NOM_PROD,U_MEDIDA FROM [Facturacion Productos] WHERE  (COD_PROD=? OR  CODIGO_BARRA LIKE ? ) AND LIQUIDADO= ?";//OR CODIGO_BARRA like ?
-        V_SQLQUERYSEARCH ="SELECT TOP 1 COD_PROD,COD_LIN,NOM_PROD,U_MEDIDA" +
+        V_SQLQUERYSEARCH = "SELECT TOP 1 COD_PROD,COD_LIN,NOM_PROD,U_MEDIDA FROM [Facturacion Productos] WHERE  (COD_PROD=? OR  CODIGO_BARRA=?) AND LIQUIDADO= ?";//OR CODIGO_BARRA like ?
+       /* V_SQLQUERYSEARCH ="SELECT TOP 1 COD_PROD,COD_LIN,NOM_PROD,U_MEDIDA" +
                 " FROM [Facturacion Productos]" +
                 " WHERE  (COD_PROD=? OR  CODIGO_BARRA=?" +
                 " OR ? IN (SELECT COD_PROD FROM Facturacion_codigo_Barra WHERE COD_PROD=?)" +
                 " OR ? IN (SELECT CODIGO_BARRA FROM Facturacion_codigo_Barra WHERE CODIGO_BARRA=?)) AND LIQUIDADO= ?";
-
+*/
         Producto producto = new Producto();
 
         try {
@@ -103,11 +103,7 @@ public class BDOperacion extends BDServidorInterface{
                 V_PREPAREDSTATEMENT = (PreparedStatement) V_OBJECTCONECTION.prepareStatement(V_SQLQUERYSEARCH, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
                 V_PREPAREDSTATEMENT.setString(1, codigo);
                 V_PREPAREDSTATEMENT.setString(2, codigo);
-                V_PREPAREDSTATEMENT.setString(3, codigo);
-                V_PREPAREDSTATEMENT.setString(4, codigo);
-                V_PREPAREDSTATEMENT.setString(5, codigo);
-                V_PREPAREDSTATEMENT.setString(6, codigo);
-                V_PREPAREDSTATEMENT.setString(7, "N");
+                V_PREPAREDSTATEMENT.setString(3, "N");
 
                 V_RESULSET = V_PREPAREDSTATEMENT.executeQuery();
                 V_RESULSET.beforeFirst();
