@@ -528,7 +528,7 @@ public class BDOperacion extends BDServidorInterface{
             e.printStackTrace();
         }
 
-        if (SERVER_NAME.equals(SERVER_NAME_PARAM) && SERVER_MACADDRESS.equals(SERVER_MACADDRESS_PARAM)){
+        if (SERVER_NAME.equals(SERVER_NAME_PARAM)){// && SERVER_MACADDRESS.equals(SERVER_MACADDRESS_PARAM)
             if (BD_NAME.equals(BD_NAME_PARAM) && BD_UUID.equals(BD_UUID_PARAM)){
                 if (LICENSE_USED <= LICENSE_TOTAL) {
                     if (LICENSE_USED < LICENSE_TOTAL)
