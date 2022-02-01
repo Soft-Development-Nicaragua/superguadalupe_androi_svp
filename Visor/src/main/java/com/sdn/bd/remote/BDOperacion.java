@@ -14,7 +14,6 @@ import com.sdn.util.Utils;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -109,6 +108,44 @@ public class BDOperacion extends BDServidorInterface{
                 V_PREPAREDSTATEMENT.setString(5, codigo);
                 V_PREPAREDSTATEMENT.setString(6, codigo);
                 V_PREPAREDSTATEMENT.setString(7, "N");
+
+                V_RESULSET = V_PREPAREDSTATEMENT.executeQuery();
+                V_RESULSET.beforeFirst();
+                while (V_RESULSET.next()) {
+                    producto.setCodigo(V_RESULSET.getString(1));
+                    producto.setLine(V_RESULSET.getString(2));
+                    producto.setNombre(V_RESULSET.getString(3));
+                    producto.setUnidad(V_RESULSET.getInt(4));
+                }
+
+                V_RESULSET.close();
+                V_PREPAREDSTATEMENT.close();
+                V_OBJECTCONECTION.close();
+            }
+        } catch (SQLException e) {
+            System.out.println(this.getClass().getName() + " GetProducto - SQLException" + e.getMessage());
+            e.printStackTrace();
+        }
+        if(producto.getCodigo().isEmpty()){
+            producto = GetProductoxCodeBarra(codigo);
+        }
+
+        return producto;
+    }
+
+    public Producto GetProductoxCodeBarra(String codigo) {
+        V_SQLQUERYSEARCH = "SELECT TOP (1)  P.COD_PROD, P.COD_LIN, P.NOM_PROD, P.U_MEDIDA" +
+                " FROM [Facturacion Productos] AS P INNER JOIN [Facturacion_codigo_Barra] AS BARRA ON P.COD_PROD=BARRA.COD_PROD" +
+                " WHERE BARRA.CODIGO_BARRA=?";
+
+        Producto producto = new Producto();
+
+        try {
+            V_OBJECTCONECTION = V_SPOOL_CATALOG.getConnection();
+
+            if (V_OBJECTCONECTION != null) {
+                V_PREPAREDSTATEMENT = (PreparedStatement) V_OBJECTCONECTION.prepareStatement(V_SQLQUERYSEARCH, ResultSet.TYPE_SCROLL_INSENSITIVE, ResultSet.CONCUR_READ_ONLY);
+                V_PREPAREDSTATEMENT.setString(1, codigo);
 
                 V_RESULSET = V_PREPAREDSTATEMENT.executeQuery();
                 V_RESULSET.beforeFirst();
