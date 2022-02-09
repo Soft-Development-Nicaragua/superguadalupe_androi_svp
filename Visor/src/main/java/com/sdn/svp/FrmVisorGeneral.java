@@ -12,6 +12,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Handler;
+import android.util.AndroidException;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.KeyEvent;
@@ -235,23 +236,24 @@ public class FrmVisorGeneral extends AppCompatActivity {
                                 txtTitulo.setText(precio.get(it).getPresentacion());
                                 txtTitulo.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                 txtTitulo.setTextSize(TypedValue.COMPLEX_UNIT_SP, 34);
+                                txtTitulo.setTextColor(getResources().getColor(R.color.black));
+                                txtTitulo.setBackground(getResources().getDrawable(R.drawable.pnlingreso_backgroud));
                                 contenedor.addView(txtTitulo);
 
                                 TextView textValor = new TextView(FrmVisorGeneral.this);
                                 textValor.setLayoutParams(lpvalor);
                                 textValor.setBackground(ContextCompat.getDrawable(FrmVisorGeneral.this, R.drawable.backgroup_price));
-                                //textValor.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
-                                // textValor.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.img_offert), null);
-                                try {
-                                    textValor.setText("C$ " + ConfApp.ISO8601_DECIMAL_FORMAT_1.format(Double.parseDouble(precio.get(it).getPrecio())));
-                                } catch (Exception e) {
-                                    textValor.setText("C$ " + precio.get(it).getPrecio());
-                                }
-
                                 textValor.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                 textValor.setTextColor(getResources().getColor(R.color.black));
                                 textValor.setTextSize(TypedValue.COMPLEX_UNIT_SP, 60);
                                 textValor.setTypeface(Typeface.DEFAULT_BOLD);
+                                 try {
+                                    textValor.setText("C$ " + ConfApp.ISO8601_DECIMAL_FORMAT_1.format(Double.parseDouble(precio.get(it).getPrecio())));
+                                } catch (Exception e) {
+                                    textValor.setText("C$ " + precio.get(it).getPrecio());
+                                }
+                                //textValor.setCompoundDrawablesWithIntrinsicBounds(null,null,precio.get(it).isPromocion()? getResources().getDrawable(R.drawable.img_offert):null,null);
+                                // textValor.setCompoundDrawablesWithIntrinsicBounds(null, null, getResources().getDrawable(R.drawable.img_offert), null);
                                 //textValor.setCompoundDrawables(null,null,precio.get(it).isPromocion()?getResources().getDrawable(R.drawable.img_offert):null,null);
                                 contenedor.addView(textValor);
 
