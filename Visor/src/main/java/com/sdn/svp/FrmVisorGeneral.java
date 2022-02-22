@@ -48,13 +48,13 @@ public class FrmVisorGeneral extends AppCompatActivity {
     Integer indiceImagenAPromocionar = 0;
     private AlertDialog mAlertDialog;
 
-    LinearLayout.LayoutParams lppresentaciones = new LinearLayout.LayoutParams((int) LinearLayout.LayoutParams.WRAP_CONTENT, (int) LinearLayout.LayoutParams.MATCH_PARENT);
     private LinearLayout panelPrincipal;
     private ImageView logoSuperior;
     private TextView lblEscanearProducto;
     String CODIGO_LEIDO="";
     private ImageView image_promo1,image_promo2;
 
+    LinearLayout.LayoutParams lppresentaciones = new LinearLayout.LayoutParams((int) LinearLayout.LayoutParams.WRAP_CONTENT, (int) LinearLayout.LayoutParams.MATCH_PARENT);
     {
         lppresentaciones.leftMargin = 10;
         lppresentaciones.topMargin = 10;
@@ -187,6 +187,14 @@ public class FrmVisorGeneral extends AppCompatActivity {
                         sound.play(msg_ok);
                         ListaPresentaciones = ConfApp.BDOPERATION.GetPresentacion(ISVISORGENERAL);
                         ListaPrecios = ConfApp.BDOPERATION.GetPrecios(producto, ListaPresentaciones);
+/*
+                        for( int i=0 ; i<ListaPrecios.size();i++){
+                            ArrayList<Precio> arr = ListaPrecios.get(i);
+                            for(int j=0; j<arr.size();j++){
+                                System.out.println("Presentacion "+(i+1)+" - "+arr.get(j));
+                            }
+                        }*/
+
                         mostrarNombreDeProducto(producto.getNombre());
                         mostrarListaPresentaciones(ListaPresentaciones);
                         mostrarPrecioDeProducto(ListaPrecios);
@@ -211,6 +219,7 @@ public class FrmVisorGeneral extends AppCompatActivity {
                 panelPrecio.removeAllViews();
 
                 for (int itprecio = 0; itprecio < listaPrecios.size(); itprecio++) {
+
                     ArrayList<Precio> precio = listaPrecios.get(itprecio);
                     if (itprecio == PRECIOAMOSTRAR) {
                         for (int it = 0; it < precio.size(); it++) {
@@ -288,15 +297,6 @@ public class FrmVisorGeneral extends AppCompatActivity {
                                 mostrarPrecioDeProducto(ListaPrecios);
                             }
                         });
-
-
-                        /*if(hasFocus){
-                                    ((Button)view).setBackground(ContextCompat.getDrawable(FrmVisorGeneral.this, R.drawable.backgroup_barcode));
-                                    ((Button)view).setTextColor(getResources().getColor(R.color.price_color));
-                                }else{
-                                    ((Button)view).setBackground(ContextCompat.getDrawable(FrmVisorGeneral.this, R.drawable.pnlingreso_backgroud));
-                                    ((Button)view).setTextColor(getResources().getColor(R.color.black));
-                                }*/
 
                         panelPresentacion.addView(textView);
                     }

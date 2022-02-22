@@ -32,7 +32,7 @@ public class BDLicenseConeccion {
 
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            DriverManager.setLoginTimeout(10);
+            DriverManager.setLoginTimeout(50);
             V_OBJECTCONECTION = DriverManager.getConnection(connectionUrl,ConfApp.BDUSER,ConfApp.BDPASS);
 
             return  (V_OBJECTCONECTION!=null);

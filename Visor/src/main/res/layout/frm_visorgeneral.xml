@@ -30,7 +30,7 @@
             android:text="KOLA SHALER DESC 120ONX(C24)"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:textSize="60sp"
+            android:textSize="48sp"
             android:textStyle="bold" />
 
         <TextView
@@ -40,17 +40,18 @@
             android:gravity="center_horizontal"
             android:text="UNID. C$ 9,298.00"
             android:textColor="@color/purple_700"
-            android:textSize="96sp"
+            android:textSize="60sp"
             android:textStyle="bold" />
 
         <LinearLayout
             android:id="@+id/p4_pnlprecio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="40dp"
                 android:layout_weight="1"

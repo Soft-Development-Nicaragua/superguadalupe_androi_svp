@@ -20,7 +20,7 @@
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_splash.xml" value="0.25" />
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visor.xml" value="0.5" />
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visor_supervisor.xml" value="0.25677083333333334" />
-        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visorgeneral.xml" value="0.33" />
+        <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/frm_visorgeneral.xml" value="0.25" />
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/item_spinner.xml" value="0.5" />
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/mostrarpropaganda.xml" value="0.18" />
         <entry key="..\:/Desarrollo de Software/Clientes/superguadalupe/svp/Visor/src/main/res/layout/pnl_ingreso.xml" value="0.25603217158176944" />
@@ -41,7 +41,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

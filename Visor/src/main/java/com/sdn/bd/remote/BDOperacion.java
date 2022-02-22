@@ -20,11 +20,6 @@ import java.util.Date;
 
 public class BDOperacion extends BDServidorInterface{
 
-
-/*
-    ArrayList<Object> DatosLineales = new ArrayList<Object>();
-    ArrayList<ArrayList<Object>> DatosMatrix = new ArrayList<ArrayList<Object>>();
-*/
     public BDOperacion() {
     }
 
@@ -201,10 +196,16 @@ public class BDOperacion extends BDServidorInterface{
     }
 
     public ArrayList<Precio> GetPreciosxPresentacion(Producto producto, Integer TipoPrecio,Integer indice) {
-        V_SQLQUERYSEARCH = "SELECT [Tabla Precios].Precio,CAST( [Facturacion Productos (Precios) Det].Valor_C * ([Tabla Impuestos].VALOR / 100 + 1) as decimal(10,2)) AS TOTAL\n" +
+        /*V_SQLQUERYSEARCH = "SELECT [Tabla Precios].Precio,CAST( [Facturacion Productos (Precios) Det].Valor_C * ([Tabla Impuestos].VALOR / 100 + 1) as decimal(10,2)) AS TOTAL\n" +
                 " FROM [Facturacion Productos (Precios) Det] INNER JOIN [Tabla Precios] ON [Facturacion Productos (Precios) Det].Cod_Prec = [Tabla Precios].Cod_Prec INNER JOIN [Facturacion Productos] ON [Facturacion Productos (Precios) Det].COD_PROD = [Facturacion Productos].COD_PROD INNER JOIN [Tabla Impuestos] ON [Facturacion Productos].COD_IMP = [Tabla Impuestos].COD_IMP\n" +
                 " WHERE ([Facturacion Productos (Precios) Det].COD_PROD = ?) AND ([Facturacion Productos (Precios) Det].Cod_Tip_Prec = ?)\n" +
-                " ORDER BY [Tabla Precios].Precio DESC";
+                " ORDER BY [Tabla Precios].Precio DESC";*/
+        V_SQLQUERYSEARCH ="SELECT tp.Precio, ROUND(  (1+(fpd.Porc_Util)/100) * fp.P_COS_C * fpd.Unidades* (ti.VALOR / 100 + 1) ,2) AS TOTAL\n" +
+                "FROM [Facturacion (Precios) Det]  fpd INNER JOIN [Tabla Precios]  tp ON fpd.Cod_Prec = tp.Cod_Prec \n" +
+                "INNER JOIN [Facturacion Productos] fp ON fpd.COD_PROD = fp.COD_PROD \n" +
+                "INNER JOIN [Tabla Impuestos] ti ON fp.COD_IMP = ti.COD_IMP\n" +
+                "WHERE (fpd.COD_PROD = ?) AND  (fpd.Cod_Tip_Prec = ?)\n" +
+                "ORDER BY tp.Precio DESC";
         ArrayList<Precio> Registros = new ArrayList<Precio>();
 
         try {
@@ -219,6 +220,7 @@ public class BDOperacion extends BDServidorInterface{
                 V_RESULSET.beforeFirst();
                 while (V_RESULSET.next()) {
                     Registros.add(new Precio(""+V_RESULSET.getString(1),V_RESULSET.getString(2)));
+                   // System.out.println("Presentacion "+TipoPrecio +" -"+Registros.get(Registros.size()-1));
                 }
 
                 V_RESULSET.close();
@@ -488,7 +490,6 @@ public class BDOperacion extends BDServidorInterface{
 
     public boolean GetStatusLicense(Context referencia) {
         FrmSplash Pantalla = (FrmSplash) referencia;
-
 
         V_SQLQUERYSEARCH = "DECLARE @t TABLE (i uniqueidentifier default newsequentialid(),  t as LOWER(i))";
         V_SQLQUERYSEARCH += "INSERT INTO @t default values;";

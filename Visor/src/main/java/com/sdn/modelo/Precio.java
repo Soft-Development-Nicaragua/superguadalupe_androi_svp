@@ -46,12 +46,12 @@ public class Precio {
         this.descuento = descuento;
     }
 
-    @Override
-    public String toString() {
-        return precio;
-    }
 
     public String toString2() {
+        return precio;
+    }
+    @Override
+    public String toString() {
         return "Precio{" +
                 "presentacion='" + presentacion + '\'' +
                 ", precio='" + precio + '\'' +

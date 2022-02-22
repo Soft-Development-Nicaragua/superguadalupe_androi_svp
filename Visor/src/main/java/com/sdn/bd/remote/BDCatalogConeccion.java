@@ -33,7 +33,7 @@ public class BDCatalogConeccion {
 
         try {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
-            DriverManager.setLoginTimeout(30);
+            DriverManager.setLoginTimeout(50);
             V_OBJECTCONECTION = DriverManager.getConnection(connectionUrl,ConfApp.BDUSER,ConfApp.BDPASS);
            // System.out.println(V_OBJECTCONECTION.toString()+"Servidor" +ConfApp.SERVER+" bd"+ConfApp.BDNAME_CATALOG);
 
