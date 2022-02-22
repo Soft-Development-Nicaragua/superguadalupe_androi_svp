@@ -416,8 +416,6 @@ public class FrmVisorGeneral extends AppCompatActivity {
     }
 
     public void createDialog() {
-
-        //System.out.println("Crearndo Alert");
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View dialogView = this.getLayoutInflater().inflate(R.layout.mostrarpropaganda, null);
 
